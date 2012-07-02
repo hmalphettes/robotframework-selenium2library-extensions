@@ -1,0 +1,11 @@
+.DS_Store
+target
+bin
+.*.swp
+*.swp
+*.kate-swp
+.*.swo
+*.pyc
+*.log
+*.png
+.ropeproject

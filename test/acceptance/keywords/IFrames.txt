@@ -1,0 +1,25 @@
+*** Setting ***
+Test Setup
+Test Teardown
+Force Tags
+Resource          ../resource.txt
+
+*** Test Cases ***
+IFrame Should Contain
+    [Tags]
+    [Setup]    Open Browser    file:///${CURDIR}/../../resources/html/frames/iframeset.html
+    Frame Should contain    right    You're looking at right.
+    Frame Should Contain    left    Links
+    [Teardown]    Close Browser
+
+Select And Unselect Frame
+    [Documentation]    LOG 2 Selecting frame 'left'.
+    [Tags]
+    [Setup]    Open Browser    file:///${CURDIR}/../../resources/html/frames/iframeset.html
+    Select IFrame    left
+    Click Link    foo
+    Unselect Frame
+    Select IFrame    right
+    Current Frame Contains    You're looking at foo.
+    [Teardown]    Close Browser
+

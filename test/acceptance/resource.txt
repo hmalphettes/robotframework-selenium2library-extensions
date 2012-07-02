@@ -1,0 +1,7 @@
+*** Settings ***
+Library           Selenium2Library
+Library           Selenium2LibraryExtensions
+
+*** Variables ***
+${BROWSER}        firefox
+

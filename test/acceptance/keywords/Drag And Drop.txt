@@ -1,0 +1,50 @@
+*** Settings ***
+Resource          ../resource.txt
+
+*** Test Cases ***
+TestDandD_jquery
+    [Tags]
+    [Setup]    Open Browser    http://jqueryui.com/demos/droppable/    ${BROWSER}
+    Drag And Drop    draggable    droppable
+    Element Text Should Be    xpath=//div[@id='droppable']/p    Dropped!
+    [Teardown]    Close Browser
+
+TestActionChains_jquery
+    [Tags]
+    [Setup]    Open Browser    http://jqueryui.com/demos/droppable/    ${BROWSER}
+    Chain Click And Hold    draggable
+    Chain Release    droppable
+    Chains Perform Now
+    Element Text Should Be    xpath=//div[@id='droppable']/p    Dropped!
+    [Teardown]    Close Browser
+
+TestActionChains_html5
+    [Documentation]    This does not work.... here is the bug in selenium: http://code.google.com/p/selenium/issues/detail?id=3604
+    [Tags]    fails    not_ready
+    [Setup]    Open Browser    http://html5demos.com/drag    ${BROWSER}
+    Mouse Over    one
+    Chain Click And Hold    one
+    Chain Move To Element    bin
+    Chain Release    bin
+    Chains Perform Now
+    Page Should Contain Element    xpath=//div[@id='bin']/p
+    [Teardown]    Close Browser
+
+TestDandD_html5
+    [Documentation]    This does not work.... here is the bug in selenium
+    [Tags]    fails    not_ready
+    [Setup]    Open Browser    http://html5demos.com/drag    ${BROWSER}
+    Drag And Drop    one    bin
+    Page Should Contain Element    xpath=//div[@id='bin']/p
+    [Teardown]    Close Browser
+
+TestActionChainsSleep
+    [Tags]
+    [Setup]    Open Browser    file:///
+    ${secs_before}=    Get Time    epoch
+    Chain Sleep    4
+    Chains Perform Now
+    ${secs_after}=    Get Time    epoch
+    Should Be True    ${secs_after}-${secs_before}>=4
+    [Teardown]    Close Browser
+
