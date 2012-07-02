@@ -8,27 +8,27 @@ Extra keywords
 [Action Chains](http://selenium.googlecode.com/svn/trunk/docs/api/py/webdriver/selenium.webdriver.common.action_chains.html)
 Lazily initiates an action chains.
 
-   Chain Sleep
-   Chain Click
-   Chain Click And Hold
-   Chain Drag And Drop
-   Chain Key Up
-   Chain Key Down
-   Chain Move By Offset
-   Chain Move To Element
-   Chain Move To Element With Offset
-   Chain Release
-   Chain Send Keys
-   Chain Send Keys To Element
+    Chain Sleep
+    Chain Click
+    Chain Click And Hold
+    Chain Drag And Drop
+    Chain Key Up
+    Chain Key Down
+    Chain Move By Offset
+    Chain Move To Element
+    Chain Move To Element With Offset
+    Chain Release
+    Chain Send Keys
+    Chain Send Keys To Element
 
 Execute the created action chains:
 
-   Chains Perform Now
+    Chains Perform Now
 
 Drag and drop shortcuts: immediately performed.
 
-   Drag And Drop
-   Drag And Drop With Offset
+    Drag And Drop
+    Drag And Drop With Offset
 
 Page Tests:
 
@@ -44,8 +44,8 @@ on my linux machine.
 It is working with jquery's drag and drop.
 
 Here are some notable webkit and chrome-driver bugs to follow:
-* keyup can't simulated: (https://bugs.webkit.org/show_bug.cgi?id=16735)
-* html5's drag and drop with chrome-driver: (http://code.google.com/p/selenium/issues/detail?id=3604)
+* keyup can't be simulated: (https://bugs.webkit.org/show_bug.cgi?id=16735)
+* html5's drag and drop with chrome-driver not supported: (http://code.google.com/p/selenium/issues/detail?id=3604)
 
 Requirements
 ============
@@ -68,8 +68,8 @@ Run the tests
 
     ./test/run_tests.sh
 
-How-to extend robotframework-selenium2library rather than fork it
-=================================================================
+Extending robotframework-selenium2library without forking it
+============================================================
 Use any of the techniques documented to write a python plugin for robotframework.
 In your keyword's method here how to access the active selenium's browser:
 
